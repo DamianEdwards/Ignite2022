@@ -9,7 +9,9 @@
   - Rate limiting
   - Output caching
   - Problem Details
-    - Hooking up `IProblemDetailsServices` to endpoints via an endpoint filter
+    - Common service for writing problem details to responses
+    - Hooks up to developer exception page, new default exception handler, status code pages & ApiController by default
+    - Can be hooked up to problem `IResult` returned from endpoints via an endpoint filter
   - Full request/response logging
   - `ActivityTrackingOptions`
   - New LINQ APIs: `Order`

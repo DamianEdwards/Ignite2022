@@ -7,9 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddProblemDetails(options =>
-    options.CustomizeProblemDetails = ctx =>
-        ctx.ProblemDetails.Extensions.Add("requestId", Activity.Current?.Id));
+builder.Services.AddProblemDetails();
 
 var app = builder.Build();
 
@@ -43,6 +41,10 @@ app.MapGet("/throw", (int? statusCode) =>
 });
 
 app.Run();
+
+static void CustomizeProblemDetails(ProblemDetailsOptions options) =>
+    options.CustomizeProblemDetails = ctx =>
+        ctx.ProblemDetails.Extensions.Add("requestId", Activity.Current?.Id);
 
 static async Task CustomExceptionHandler(HttpContext context)
 {
