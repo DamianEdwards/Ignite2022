@@ -15,10 +15,6 @@
   - Full request/response logging
   - `ActivityTrackingOptions`
   - Counters & events in VS Performance Profiler
-- Esoteric
-  - `System.Diagnostics.Metrics`
-  - QUIC transport
-  - HTTP/2 WebSockets
 
 ## Interesting samples & patterns
 
