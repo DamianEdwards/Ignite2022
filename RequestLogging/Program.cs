@@ -20,15 +20,21 @@ builder.Services.AddW3CLogging(o =>
 
 #endregion
 
+#region top secret
+
+//builder.WebHost.ConfigureKestrel(o =>
+//{
+//    o.ConfigureEndpointDefaults(ed => ed.UseConnectionLogging());
+//});
+
+#endregion
+
 var app = builder.Build();
 
 // Don't do this
 app.Use(async (context, next) =>
 {
     // Request
-    context.Request.EnableBuffering();
-    using var reader = new StreamReader(context.Request.Body);
-
     var sb = new StringBuilder();
     foreach (var header in context.Request.Headers)
     {
@@ -36,6 +42,10 @@ app.Use(async (context, next) =>
     }
 
     app.Logger.LogInformation(sb.ToString());
+
+    // Body
+    context.Request.EnableBuffering();
+    using var reader = new StreamReader(context.Request.Body);
 
     app.Logger.LogDebug(await reader.ReadLineAsync());
 
@@ -47,6 +57,14 @@ app.Use(async (context, next) =>
     context.Response.Body = ms;
 
     await next(context);
+
+    sb.Clear();
+    foreach (var header in context.Response.Headers)
+    {
+        sb.Append($"{header.Key}={header.Value}");
+    }
+
+    app.Logger.LogInformation(sb.ToString());
 
     app.Logger.LogDebug(Encoding.UTF8.GetString(ms.ToArray()));
 
