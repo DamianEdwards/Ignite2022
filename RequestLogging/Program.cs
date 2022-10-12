@@ -19,7 +19,7 @@ var app = builder.Build();
 app.UseHttpLogging();
 app.UseW3CLogging();
 
-app.MapGet("/", () => "Hello World!");
+app.MapGet("/", () => "Hello from request logging");
 app.MapPost("/", (JsonNode obj) => obj);
 
 app.Run();
