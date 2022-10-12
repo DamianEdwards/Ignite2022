@@ -22,6 +22,7 @@ builder.Services.AddW3CLogging(o =>
 
 var app = builder.Build();
 
+// Don't do this
 app.Use(async (context, next) =>
 {
     // Request
@@ -42,11 +43,15 @@ app.Use(async (context, next) =>
 
     // Response
     var ms = new MemoryStream();
+    var old = context.Response.Body;
     context.Response.Body = ms;
 
     await next(context);
 
     app.Logger.LogDebug(Encoding.UTF8.GetString(ms.ToArray()));
+
+    ms.Position = 0;
+    await ms.CopyToAsync(old);
 });
 
 #region middleware
