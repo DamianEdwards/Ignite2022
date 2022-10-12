@@ -5,16 +5,15 @@
 
 ## New stuff
 
-- Mainstream
-  - Rate limiting
-  - Full request/response logging
-  - Output caching
-  - Counters & events in VS Performance Profiler
-  - Problem Details
+- Rate limiting
+- Full request/response logging
+- Output caching
+- Counters & events in VS Performance Profiler
+- Problem Details
     - Common service for writing problem details to responses
     - Hooks up to developer exception page, new default exception handler, status code pages & ApiController by default
     - Can be hooked up to problem `IResult` returned from endpoints via an endpoint filter
-  - `ActivityTrackingOptions`
+- `ActivityTrackingOptions`
 
 ## Interesting samples & patterns
 
@@ -25,7 +24,7 @@
 - [Small proxy](YarpProxy)
 - [Metadata-only endpoints](https://github.com/DamianEdwards/AspNetCorePathAuthorization)
 
-## Don't try this at home
+## Early days but I like where this is going..
 
 - Trimming, AOT, and the smallest possible .NET app
   - ASP.NET Core considerations
