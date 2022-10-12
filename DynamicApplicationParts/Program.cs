@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+using System.Runtime.Loader;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,20 +13,22 @@ var app = builder.Build();
 
 app.MapControllers();
 
-app.Start();
-
-app.Logger.LogInformation("Dynamically adding the controller");
-await Task.Delay(5000);
-
-await dynamicApplicationPart.AddModuleAsync("MyModule", typeof(MyController));
-
-app.Logger.LogInformation("The routes for the controller should be ready");
-
-app.WaitForShutdown();
-
-
-public class MyController
+app.MapGet("/load/{module}", async (string module) =>
 {
-    [HttpGet("/")]
-    public string Get() => "This is a dynamic controller part";
-}
+    var modulePath = Path.Combine(Directory.GetCurrentDirectory(), "..", module, "bin", "Debug", "net7.0", $"{module}.dll");
+
+    if (!File.Exists(modulePath))
+    {
+        return Results.Problem($"""Unable to locate module "{module}" """, statusCode: StatusCodes.Status404NotFound);
+    }
+
+    await dynamicApplicationPart.AddModuleAsync(module, () =>
+    {
+        var assembly = AssemblyLoadContext.Default.LoadFromAssemblyPath(modulePath);
+        return assembly.GetExportedTypes();
+    });
+
+    return Results.Text($"{module} loaded");
+});
+
+app.Run();
