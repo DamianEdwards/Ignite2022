@@ -9,5 +9,5 @@ B --> C[UseEndpoints]
 C --> |/foo| D[Middleware2]
 C --> |/bar| E[Middleware3]
 D --> F[Endpoint1]
-E --> G[Endpoint1]
+E --> G[Endpoint2]
 ```
