@@ -1,3 +1,4 @@
+using System.Text;
 using System.Text.Json.Nodes;
 using Microsoft.AspNetCore.HttpLogging;
 
@@ -17,8 +18,30 @@ builder.Services.AddW3CLogging(o =>
 
 var app = builder.Build();
 
-app.UseHttpLogging();
-app.UseW3CLogging();
+app.Use(async (context, next) =>
+{
+    var ms = new MemoryStream();
+    context.Response.Body = ms;
+
+    var reader = new StreamReader(context.Response.Body);
+
+    var sb = new StringBuilder();
+    foreach (var header in context.Request.Headers)
+    {
+        sb.Append($"{header.Key}={header.Value}");
+    }
+
+    app.Logger.LogInformation(sb.ToString());
+
+    app.Logger.LogDebug(await reader.ReadLineAsync());
+
+    await next(context);
+
+    app.Logger.LogDebug(Encoding.UTF8.GetString(ms.ToArray()));
+});
+
+// app.UseHttpLogging();
+// app.UseW3CLogging();
 
 app.MapGet("/", () => "Hello from request logging");
 app.MapPost("/", (JsonNode obj) => obj);
