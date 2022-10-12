@@ -1,4 +1,3 @@
-using System.Net;
 using Yarp.ReverseProxy.Forwarder;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +14,7 @@ var httpClient = new HttpMessageInvoker(new SocketsHttpHandler()
 
 app.Map("{**path}", async (IHttpForwarder forwarder, HttpContext httpContext) =>
 {
+    // This address is the RequestLogging project, make sure it's running!
     var error = await forwarder.SendAsync(httpContext, "https://localhost:7188", httpClient);
 
     if (error != ForwarderError.None)
