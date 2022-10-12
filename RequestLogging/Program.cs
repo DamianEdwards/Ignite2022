@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.HttpLogging;
 
 var builder = WebApplication.CreateBuilder(args);
 
+#region
+
 builder.Services.AddHttpLogging(o =>
 {
     o.LoggingFields = HttpLoggingFields.All;
@@ -15,6 +17,8 @@ builder.Services.AddW3CLogging(o =>
 {
     o.LoggingFields = W3CLoggingFields.All;
 });
+
+#endregion
 
 var app = builder.Build();
 
