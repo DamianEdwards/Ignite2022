@@ -1,8 +1,9 @@
+using System.Reflection;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.WebUtilities;
 using Newtonsoft.Json;
 
-public struct JsonNet<T> : IResult
+public class JsonNet<T> : IResult, IBindableFromHttpContext<JsonNet<T>>
 {
     public JsonNet(T? item)
     {
@@ -12,7 +13,7 @@ public struct JsonNet<T> : IResult
     public T? Item { get; }
 
     // Input
-    public static async ValueTask<JsonNet<T>> BindAsync(HttpContext httpContext)
+    public static async ValueTask<JsonNet<T>?> BindAsync(HttpContext httpContext, ParameterInfo parameterInfo)
     {
         // TODO: Check the content type?
 
