@@ -1,4 +1,4 @@
-## Startup hooks
+# Startup hooks
 
 This sample shows how you can inject a startup hook into the process that hooks the creation of any `IHostBuilder`.
 Change `Properties\launchSetings.json` to specify the `DOTNET_STARTUP_HOOKS` environement variable to the full physical path

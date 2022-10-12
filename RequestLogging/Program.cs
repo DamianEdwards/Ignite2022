@@ -7,6 +7,7 @@ builder.Services.AddHttpLogging(o =>
 {
     o.LoggingFields = HttpLoggingFields.All;
     // o.RequestBodyLogLimit = 1024;
+    // o.RequestHeaders.Add(HeaderNames.ContentLength);
 });
 
 builder.Services.AddW3CLogging(o =>

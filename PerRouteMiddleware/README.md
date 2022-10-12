@@ -1,4 +1,4 @@
-## Per route middleware
+# Per route middleware
 
 This sample shows how to wire up middleware per route. The diagram below shows what the execution looks like when this is applied.
 
