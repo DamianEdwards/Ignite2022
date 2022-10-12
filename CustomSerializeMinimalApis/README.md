@@ -5,7 +5,7 @@ This sample shows a pattern for building custom serialization for minimal APIs. 
 ```C#
 using Microsoft.AspNetCore.Http.Features;
 
-public struct Serialized<T> : IResult
+public class Serialized<T> : IResult, IBindableFromHttpContext<Serialized<T>>
 {
     public Serialized(T? item)
     {
@@ -15,7 +15,7 @@ public struct Serialized<T> : IResult
     public T? Item { get; }
 
     // Input
-    public static async ValueTask<Serialized<T>> BindAsync(HttpContext httpContext)
+    public static async ValueTask<Serialized<T>?> BindAsync(HttpContext httpContext, ParameterInfo parameterInfo)
     {
         // Write code here to de-serailize T from the request body
     }
