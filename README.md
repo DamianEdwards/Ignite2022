@@ -7,14 +7,14 @@
 
 - Mainstream
   - Rate limiting
+  - Full request/response logging
   - Output caching
+  - Counters & events in VS Performance Profiler
   - Problem Details
     - Common service for writing problem details to responses
     - Hooks up to developer exception page, new default exception handler, status code pages & ApiController by default
     - Can be hooked up to problem `IResult` returned from endpoints via an endpoint filter
-  - Full request/response logging
   - `ActivityTrackingOptions`
-  - Counters & events in VS Performance Profiler
 
 ## Interesting samples & patterns
 
