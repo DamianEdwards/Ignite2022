@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddHttpLogging(o =>
 {
     o.LoggingFields = HttpLoggingFields.All;
+    // o.RequestBodyLogLimit = 1024;
 });
 
 builder.Services.AddW3CLogging(o =>
@@ -19,6 +20,6 @@ app.UseHttpLogging();
 app.UseW3CLogging();
 
 app.MapGet("/", () => "Hello World!");
-app.MapPost("/", (JsonObject obj) => obj);
+app.MapPost("/", (JsonNode obj) => obj);
 
 app.Run();
