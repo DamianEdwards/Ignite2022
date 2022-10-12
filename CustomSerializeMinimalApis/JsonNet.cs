@@ -4,12 +4,12 @@ using Newtonsoft.Json;
 
 public struct JsonNet<T> : IResult
 {
-    public JsonNet(T item)
+    public JsonNet(T? item)
     {
         Item = item;
     }
 
-    public T Item { get; }
+    public T? Item { get; }
 
     // Input
     public static async ValueTask<JsonNet<T>> BindAsync(HttpContext httpContext)
