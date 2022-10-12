@@ -22,6 +22,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PerRouteMiddleware", "PerRo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomSerializeMinimalApis", "CustomSerializeMinimalApis\CustomSerializeMinimalApis.csproj", "{DB705D67-711C-4B16-B0B2-A3AA0108C44A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StartupHookTarget", "StartupHookTarget\StartupHookTarget.csproj", "{4BC2B2F1-AFFB-4165-B911-038959DF71CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyStartupHook", "MyStartupHook\MyStartupHook.csproj", "{4D312F4A-02DA-43FD-8184-E0E102C21864}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,6 +56,14 @@ Global
 		{DB705D67-711C-4B16-B0B2-A3AA0108C44A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB705D67-711C-4B16-B0B2-A3AA0108C44A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB705D67-711C-4B16-B0B2-A3AA0108C44A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BC2B2F1-AFFB-4165-B911-038959DF71CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BC2B2F1-AFFB-4165-B911-038959DF71CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BC2B2F1-AFFB-4165-B911-038959DF71CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BC2B2F1-AFFB-4165-B911-038959DF71CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D312F4A-02DA-43FD-8184-E0E102C21864}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D312F4A-02DA-43FD-8184-E0E102C21864}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D312F4A-02DA-43FD-8184-E0E102C21864}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D312F4A-02DA-43FD-8184-E0E102C21864}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
