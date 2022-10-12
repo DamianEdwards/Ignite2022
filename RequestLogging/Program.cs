@@ -25,7 +25,8 @@ var app = builder.Build();
 app.Use(async (context, next) =>
 {
     // Request
-    var reader = new StreamReader(context.Response.Body);
+    context.Request.EnableBuffering();
+    using var reader = new StreamReader(context.Request.Body);
 
     var sb = new StringBuilder();
     foreach (var header in context.Request.Headers)
@@ -36,6 +37,8 @@ app.Use(async (context, next) =>
     app.Logger.LogInformation(sb.ToString());
 
     app.Logger.LogDebug(await reader.ReadLineAsync());
+
+    context.Request.Body.Position = 0;
 
     // Response
     var ms = new MemoryStream();

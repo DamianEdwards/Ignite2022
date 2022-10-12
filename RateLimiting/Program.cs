@@ -14,7 +14,7 @@ builder.Services.AddRateLimiter(options =>
             {
                 Window = TimeSpan.FromSeconds(10),
                 PermitLimit = 5,
-                QueueLimit = 2
+                QueueLimit = 0
             }
         ));
 });
