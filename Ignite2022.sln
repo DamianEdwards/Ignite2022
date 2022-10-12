@@ -14,19 +14,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProblemDetails", "ProblemDe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RateLimiting", "RateLimiting\RateLimiting.csproj", "{8C4D497B-A297-4368-AAF8-C36BE45F0346}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequestLogging", "RequestLogging\RequestLogging.csproj", "{EDF23877-26F4-4A9A-AD9C-0EF6C22ADC98}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RequestLogging", "RequestLogging\RequestLogging.csproj", "{EDF23877-26F4-4A9A-AD9C-0EF6C22ADC98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YarpProxy", "YarpProxy\YarpProxy.csproj", "{74E2718C-169F-468C-8FE2-23446AE6B333}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YarpProxy", "YarpProxy\YarpProxy.csproj", "{74E2718C-169F-468C-8FE2-23446AE6B333}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PerRouteMiddleware", "PerRouteMiddleware\PerRouteMiddleware.csproj", "{F795128C-C50B-4235-A4B3-BEA1F075F224}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PerRouteMiddleware", "PerRouteMiddleware\PerRouteMiddleware.csproj", "{F795128C-C50B-4235-A4B3-BEA1F075F224}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomSerializeMinimalApis", "CustomSerializeMinimalApis\CustomSerializeMinimalApis.csproj", "{DB705D67-711C-4B16-B0B2-A3AA0108C44A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomSerializeMinimalApis", "CustomSerializeMinimalApis\CustomSerializeMinimalApis.csproj", "{DB705D67-711C-4B16-B0B2-A3AA0108C44A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StartupHookTarget", "StartupHookTarget\StartupHookTarget.csproj", "{4BC2B2F1-AFFB-4165-B911-038959DF71CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StartupHookTarget", "StartupHookTarget\StartupHookTarget.csproj", "{4BC2B2F1-AFFB-4165-B911-038959DF71CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyStartupHook", "MyStartupHook\MyStartupHook.csproj", "{4D312F4A-02DA-43FD-8184-E0E102C21864}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyStartupHook", "MyStartupHook\MyStartupHook.csproj", "{4D312F4A-02DA-43FD-8184-E0E102C21864}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicApplicationParts", "DynamicApplicationParts\DynamicApplicationParts.csproj", "{ECF45C47-AF5D-4C67-94A5-B3457DA3D596}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicApplicationParts", "DynamicApplicationParts\DynamicApplicationParts.csproj", "{ECF45C47-AF5D-4C67-94A5-B3457DA3D596}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutputCaching", "OutputCaching\OutputCaching.csproj", "{B101FC63-5789-4596-A6F9-4ABF277BCE65}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -70,6 +72,10 @@ Global
 		{ECF45C47-AF5D-4C67-94A5-B3457DA3D596}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECF45C47-AF5D-4C67-94A5-B3457DA3D596}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECF45C47-AF5D-4C67-94A5-B3457DA3D596}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B101FC63-5789-4596-A6F9-4ABF277BCE65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B101FC63-5789-4596-A6F9-4ABF277BCE65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B101FC63-5789-4596-A6F9-4ABF277BCE65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B101FC63-5789-4596-A6F9-4ABF277BCE65}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
