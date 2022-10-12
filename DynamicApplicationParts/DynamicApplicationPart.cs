@@ -1,6 +1,5 @@
 using System.Collections.Concurrent;
 using System.Reflection;
-using System.Runtime.Loader;
 using Microsoft.AspNetCore.Mvc.ApplicationParts;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.Primitives;
@@ -24,6 +23,11 @@ public class DynamicApplicationPart : ApplicationPart, IApplicationPartTypeProvi
     private readonly List<ModuleEntry> _observed = new List<ModuleEntry>();
 
     public Task AddModuleAsync(string moduleName, params Type[] types)
+    {
+        return AddModuleAsync(moduleName, () => types);
+    }
+
+    public Task AddModuleAsync(string moduleName, Func<Type[]> types)
     {
         while (true)
         {
@@ -50,9 +54,6 @@ public class DynamicApplicationPart : ApplicationPart, IApplicationPartTypeProvi
             return newEntry.Task;
         }
     }
-
-    //private static Assembly GetAssembly(string moduleName)
-    //    => AssemblyLoadContext.Default.LoadFromAssemblyPath(Path.Combine(Environment.CurrentDirectory, "..", moduleName, @"bin\Debug\netcoreapp3.1", moduleName + ".dll"));
 
     public IChangeToken GetChangeToken()
     {
@@ -124,19 +125,24 @@ public class DynamicApplicationPart : ApplicationPart, IApplicationPartTypeProvi
 
     private class ModuleEntry
     {
-        private readonly Type[] _types;
+        private Type[]? _types;
+        private readonly Func<Type[]> _factory;
         private readonly TaskCompletionSource _tcs = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+        private object _sync = new();
 
         public string ModuleName { get; }
 
         public Task Task => _tcs.Task;
 
-        public Type[] Types => _types;
+        public Type[] Types
+        {
+            get => LazyInitializer.EnsureInitialized(ref _types, ref _sync, _factory);
+        }
 
-        public ModuleEntry(string moduleName, Type[] types)
+        public ModuleEntry(string moduleName, Func<Type[]> factory)
         {
             ModuleName = moduleName;
-            _types = types;
+            _factory = factory;
         }
 
         public void SetLoadingComplete() => _tcs.TrySetResult();
