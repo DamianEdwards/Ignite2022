@@ -10,9 +10,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProblemDetails", "ProblemDetails\ProblemDetails.csproj", "{91061D9F-30BD-4DFC-A0DA-C5AAD4B2E311}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProblemDetails", "ProblemDetails\ProblemDetails.csproj", "{91061D9F-30BD-4DFC-A0DA-C5AAD4B2E311}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RateLimiting", "RateLimiting\RateLimiting.csproj", "{8C4D497B-A297-4368-AAF8-C36BE45F0346}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RateLimiting", "RateLimiting\RateLimiting.csproj", "{8C4D497B-A297-4368-AAF8-C36BE45F0346}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequestLogging", "RequestLogging\RequestLogging.csproj", "{EDF23877-26F4-4A9A-AD9C-0EF6C22ADC98}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,6 +30,10 @@ Global
 		{8C4D497B-A297-4368-AAF8-C36BE45F0346}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C4D497B-A297-4368-AAF8-C36BE45F0346}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C4D497B-A297-4368-AAF8-C36BE45F0346}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDF23877-26F4-4A9A-AD9C-0EF6C22ADC98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDF23877-26F4-4A9A-AD9C-0EF6C22ADC98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDF23877-26F4-4A9A-AD9C-0EF6C22ADC98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDF23877-26F4-4A9A-AD9C-0EF6C22ADC98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
