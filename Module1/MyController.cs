@@ -4,6 +4,6 @@ namespace Module1;
 
 public class MyController
 {
-    [HttpGet("/")]
-    public string Get() => "This is a dynamic controller part";
+    [HttpGet("/module1")]
+    public string Get() => "This is controller was loaded dynamically";
 }
