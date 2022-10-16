@@ -23,7 +23,7 @@ public class Serialized<T> : IResult, IBindableFromHttpContext<Serialized<T>>
     // Output
     public Task ExecuteAsync(HttpContext httpContext)
     {
-        // Write code here to serialize T to the respones body
+        // Write code here to serialize T to the response body
     }
 }
 
